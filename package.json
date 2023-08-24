@@ -1,0 +1,52 @@
+{
+  "name": "katool",
+  "version": "1.0.0",
+  "description": "Discord Tool",
+  "main": "dist/server.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "dev": "wrangler dev",
+    "build": "node build.js",
+    "lint": "eslint . & prettier --check .",
+    "lint:fix": "eslint . --fix & prettier --write .",
+    "deploy": "wrangler deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waki285/Katool.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "engines": {
+    "npm": "Do not use npm, use pnpm instead.",
+    "yarn": "Do not use yarn, use pnpm instead."
+  },
+  "engineStrict": true,
+  "author": "waki285 <suzuneu@suzuneu.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/waki285/Katool/issues"
+  },
+  "homepage": "https://github.com/waki285/Katool#readme",
+  "dependencies": {
+    "discord-api-types": "^0.37.54",
+    "discord-interactions": "^3.4.0",
+    "hono": "^3.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.4",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "esbuild": "^0.19.2",
+    "eslint": "^8.47.0",
+    "jest": "^29.6.3",
+    "prettier": "^3.0.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6",
+    "wrangler": "^3.5.1"
+  }
+}
