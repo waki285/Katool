@@ -35,11 +35,13 @@
   "dependencies": {
     "@cloudflare/workers-types": "^4.20230821.0",
     "@sapphire/snowflake": "^3.5.1",
+    "browser-util-inspect": "^0.2.0",
     "discord-api-types": "^0.37.54",
     "discord-interactions": "^3.4.0",
     "hono": "^3.5.4"
   },
   "devDependencies": {
+    "@types/browser-util-inspect": "^0.2.1",
     "@types/jest": "^29.5.4",
     "@types/node": "^20.5.4",
     "@typescript-eslint/eslint-plugin": "^6.4.1",

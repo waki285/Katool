@@ -11,6 +11,9 @@ dependencies:
   '@sapphire/snowflake':
     specifier: ^3.5.1
     version: 3.5.1
+  browser-util-inspect:
+    specifier: ^0.2.0
+    version: 0.2.0
   discord-api-types:
     specifier: ^0.37.54
     version: 0.37.54
@@ -22,6 +25,9 @@ dependencies:
     version: 3.5.4
 
 devDependencies:
+  '@types/browser-util-inspect':
+    specifier: ^0.2.1
+    version: 0.2.1
   '@types/jest':
     specifier: ^29.5.4
     version: 29.5.4
@@ -1315,6 +1321,10 @@ packages:
       '@babel/types': 7.22.10
     dev: true
 
+  /@types/browser-util-inspect@0.2.1:
+    resolution: {integrity: sha512-elwTwQw+CCa+Ir3CUuLikop24S2fwQDIW1+2Vmyc4wj31OeNONdJtZeqP5LsBIZy4uB+N0WFycNoslkqBR1u9Q==}
+    dev: true
+
   /@types/graceful-fs@4.1.6:
     resolution: {integrity: sha512-Sig0SNORX9fdW+bQuTEovKj3uHcUL6LQKbCrrqb1X7J6/ReAbhCXRAhc+SMejhLELFj2QcyuxmUooZ4bt5ReSw==}
     dependencies:
@@ -1830,6 +1840,10 @@ packages:
     dependencies:
       fill-range: 7.0.1
     dev: true
+
+  /browser-util-inspect@0.2.0:
+    resolution: {integrity: sha512-R7WvAj0p9FtwS2Jbtc1HUd1+YZdeb5EEqjBSbbOK3owJtW1viWyJDeTPy43QZ7bZ8POtb1yMv++h844486jMsQ==}
+    dev: false
 
   /browserslist@4.21.10:
     resolution: {integrity: sha512-bipEBdZfVH5/pwrvqc+Ub0kUPVfGUhlKxbvfD+z1BDnPEO/X98ruXGA1WP5ASpAFKan7Qr6j736IacbZQuAlKQ==}
