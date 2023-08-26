@@ -1,6 +1,6 @@
 import { Command } from "@/interfaces";
 import { DiscordSnowflake } from "@sapphire/snowflake";
-import { APIChatInputApplicationCommandInteraction, APIInteractionResponseChannelMessageWithSource } from "discord-api-types/v10";
+import { APIChatInputApplicationCommandInteraction, APIInteractionResponseChannelMessageWithSource, MessageFlags } from "discord-api-types/v10";
 
 export default class Ping extends Command {
   name = "ping";
@@ -9,6 +9,7 @@ export default class Ping extends Command {
       type: 4,
       data: {
         content: `Pong! API Latency: ${BigInt(Date.now()) - DiscordSnowflake.deconstruct(interaction.id).timestamp}ms`,
+        flags: MessageFlags.Ephemeral,
       },
     };
   }
