@@ -1,12 +1,12 @@
 const config = {
-  testMatch: ['**/*.test.ts'],
+  testMatch: ["**/*.test.ts"],
   transform: {
     // '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.tsx?$': 'esbuild-jest',
+    "^.+\\.tsx?$": "esbuild-jest",
   },
   testEnvironment: "node",
   moduleNameMapper: {
-    "@/(.*)": "<rootDir>/src/$1"
+    "@/(.*)": "<rootDir>/src/$1",
   },
 };
 

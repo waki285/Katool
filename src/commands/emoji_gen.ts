@@ -1,5 +1,9 @@
 import { Command, EmojiGenColors, EmojiGenFonts } from "@/interfaces";
-import { APIInteractionResponseChannelMessageWithSource, ButtonStyle, ComponentType } from "discord-api-types/v10";
+import {
+  APIInteractionResponseChannelMessageWithSource,
+  ButtonStyle,
+  ComponentType,
+} from "discord-api-types/v10";
 
 export default class EmojiGen extends Command {
   name = "emoji_gen";
@@ -11,19 +15,23 @@ export default class EmojiGen extends Command {
         components: [
           {
             type: ComponentType.ActionRow,
-            components: [{
-              type: ComponentType.StringSelect,
-              custom_id: "emojigen_font",
-              options: EmojiGenFonts,
-            }]
+            components: [
+              {
+                type: ComponentType.StringSelect,
+                custom_id: "emojigen_font",
+                options: EmojiGenFonts,
+              },
+            ],
           },
           {
             type: ComponentType.ActionRow,
-            components: [{
-              type: ComponentType.StringSelect,
-              custom_id: "emojigen_color",
-              options: EmojiGenColors,
-            }]
+            components: [
+              {
+                type: ComponentType.StringSelect,
+                custom_id: "emojigen_color",
+                options: EmojiGenColors,
+              },
+            ],
           },
           {
             type: ComponentType.ActionRow,
@@ -46,8 +54,8 @@ export default class EmojiGen extends Command {
                 custom_id: "emojigen_align_right",
                 label: "Align right",
                 style: ButtonStyle.Secondary,
-              }
-            ]
+              },
+            ],
           },
           {
             type: ComponentType.ActionRow,
@@ -70,10 +78,10 @@ export default class EmojiGen extends Command {
                 label: "Create Emoji in Server",
                 style: ButtonStyle.Success,
                 disabled: true,
-              }
-            ]
-          }
-        ]
+              },
+            ],
+          },
+        ],
       },
     };
   }

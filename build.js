@@ -25,10 +25,8 @@ const ctx2 = await context({
   entryPoints: ["src/register.ts"],
   outfile: "dist/register.js",
   platform: "node",
-  packages: "external"
+  packages: "external",
 });
 
-await Promise.all(
-  [ctx, ctx2].map((c) => c.rebuild())
-);
+await Promise.all([ctx, ctx2].map((c) => c.rebuild()));
 process.exit(0);

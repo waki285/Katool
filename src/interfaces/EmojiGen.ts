@@ -1,10 +1,10 @@
-import { APISelectMenuOption } from "discord-api-types/v10"
+import { APISelectMenuOption } from "discord-api-types/v10";
 
 export const EmojiGenFonts: APISelectMenuOption[] = [
   {
     label: "Noto Sans Mono CJK JP Bold",
     value: "notosans-mono-bold",
-    default: true
+    default: true,
   },
   {
     label: "M+ 1p black",
@@ -25,7 +25,7 @@ export const EmojiGenFonts: APISelectMenuOption[] = [
   {
     label: "LinLibertine Bold",
     value: "LinLibertine_RBah",
-  }
+  },
 ];
 
 export const EmojiGenColors: APISelectMenuOption[] = [
@@ -69,5 +69,5 @@ export const EmojiGenColors: APISelectMenuOption[] = [
   {
     label: "Custom",
     value: "custom",
-  }
-] 
+  },
+];

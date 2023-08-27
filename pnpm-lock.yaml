@@ -8,6 +8,9 @@ dependencies:
   '@cloudflare/workers-types':
     specifier: ^4.20230821.0
     version: 4.20230821.0
+  '@discordjs/collection':
+    specifier: ^1.5.3
+    version: 1.5.3
   '@sapphire/snowflake':
     specifier: ^3.5.1
     version: 3.5.1
@@ -484,6 +487,11 @@ packages:
       exec-sh: 0.3.6
       minimist: 1.2.8
     dev: true
+
+  /@discordjs/collection@1.5.3:
+    resolution: {integrity: sha512-SVb428OMd3WO1paV3rm6tSjM4wC+Kecaa1EUGX7vc6/fddvw/6lg90z4QtCqm21zvVe92vMMDt9+DkIvjXImQQ==}
+    engines: {node: '>=16.11.0'}
+    dev: false
 
   /@esbuild-plugins/node-globals-polyfill@0.1.1(esbuild@0.16.3):
     resolution: {integrity: sha512-MR0oAA+mlnJWrt1RQVQ+4VYuRJW/P2YmRTv1AsplObyvuBMnPHiizUF95HHYiSsMGLhyGtWufaq2XQg6+iurBg==}

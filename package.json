@@ -10,7 +10,7 @@
     "dev": "wrangler dev",
     "build": "node build.js",
     "register": "node dist/register.js",
-    "lint": "eslint . & prettier --check .",
+    "lint": "tsc && eslint . & prettier --check .",
     "lint:fix": "eslint . --fix & prettier --write .",
     "deploy": "wrangler deploy"
   },
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/waki285/Katool#readme",
   "dependencies": {
     "@cloudflare/workers-types": "^4.20230821.0",
+    "@discordjs/collection": "^1.5.3",
     "@sapphire/snowflake": "^3.5.1",
     "browser-util-inspect": "^0.2.0",
     "discord-api-types": "^0.37.54",

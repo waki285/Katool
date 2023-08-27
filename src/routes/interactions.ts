@@ -1,10 +1,11 @@
 import { Env } from "@/interfaces";
 import { getLogger } from "@/logger";
-import { commands } from "@/managers";
+import { actions, commands } from "@/managers";
 import { verifyDiscordRequest } from "@/tools";
 import {
   InteractionResponseType,
   InteractionType,
+  MessageFlags,
 } from "discord-api-types/v10";
 import { isChatInputApplicationCommandInteraction } from "discord-api-types/utils/v10";
 import { Hono } from "hono";
@@ -33,7 +34,10 @@ router.post("/", async (c) => {
       if (!command) {
         return c.json({
           type: InteractionResponseType.ChannelMessageWithSource,
-          data: { content: "Command not found." },
+          data: {
+            content: "Command not found.",
+            flags: MessageFlags.Ephemeral,
+          },
         });
       }
 
@@ -47,6 +51,24 @@ router.post("/", async (c) => {
         data: { content: "This command is not supported." },
       });
     }
+  } else if (interaction.type === InteractionType.MessageComponent || interaction.type === InteractionType.ModalSubmit) {
+    logger.info(`Received message component`);
+    const customId = interaction.data.custom_id;
+    logger.info(customId);
+    let action =
+      actions.get(customId);
+    action ??= actions.filter((a) => customId.startsWith(a.name)).sort((a, b) => b.name.length - a.name.length).first();
+    if (!action) {
+      return c.json({
+        type: InteractionResponseType.ChannelMessageWithSource,
+        data: { content: "Action not found.", flags: MessageFlags.Ephemeral },
+      });
+    }
+
+    logger.info(`Received action ${action.name}. Executing`);
+    const response = await action.execute(interaction);
+    logger.info(`Action ${action.name} executed`);
+    return c.json(response);
   }
 });
 

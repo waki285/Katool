@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 import process from "node:process";
 import util from "node:util";
 
-const formatTxt = (format: [number, number], txt: string) =>  `\u001b[${format[0]}m${txt}\u001b[${format[1]}m`;
+const formatTxt = (format: [number, number], txt: string) =>
+  `\u001b[${format[0]}m${txt}\u001b[${format[1]}m`;
 const colors = util.inspect.colors;
 
 /**
@@ -23,7 +24,7 @@ if (!token) {
 }
 if (!applicationId) {
   throw new Error(
-    "The DISCORD_APPLICATION_ID environment variable is required."
+    "The DISCORD_APPLICATION_ID environment variable is required.",
   );
 }
 
@@ -37,8 +38,8 @@ const request = https.request(url, {
   method: "PUT",
   headers: {
     Authorization: `Bot ${token}`,
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 });
 
 request.write(JSON.stringify(commandData));
@@ -49,9 +50,19 @@ console.log(formatTxt(colors["green"]!, "Request connected."));
 request.on("response", (response) => {
   console.log(formatTxt(colors["blue"]!, "Request responded."));
   if (response.statusCode?.toString().startsWith("2")) {
-    console.log(formatTxt(colors["green"]!, `${response.statusCode} ${response.statusMessage}`));
+    console.log(
+      formatTxt(
+        colors["green"]!,
+        `${response.statusCode} ${response.statusMessage}`,
+      ),
+    );
   } else {
-    console.log(formatTxt(colors["red"]!, `${response.statusCode} ${response.statusMessage}`));
+    console.log(
+      formatTxt(
+        colors["red"]!,
+        `${response.statusCode} ${response.statusMessage}`,
+      ),
+    );
   }
   let data = "";
   response.on("data", (chunk) => {
