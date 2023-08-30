@@ -61,7 +61,7 @@ export default class EmojiGenModal extends Action {
                     };
                   }).concat({
                     label: `#${selected.toUpperCase()} (Custom)`,
-                    value: selected.toUpperCase(),
+                    value: selected.toUpperCase() + (selected.length === 6 ? "FF" : ""),
                     default: true,
                   }),
                 },

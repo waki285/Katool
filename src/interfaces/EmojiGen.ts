@@ -20,7 +20,7 @@ export const EmojiGenFonts: APISelectMenuOption[] = [
   },
   {
     label: "Aoyagi Reisyo Shimo",
-    value: "aoyagireishoshimo",
+    value: "aoyagireisyoshimo",
   },
   {
     label: "LinLibertine Bold",

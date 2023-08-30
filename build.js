@@ -19,6 +19,7 @@ const ctx = await context({
   entryPoints: ["src/server.ts"],
   outfile: "dist/server.js",
   platform: "browser",
+  external: ["buffer"]
 });
 const ctx2 = await context({
   ...SharedConfig,

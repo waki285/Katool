@@ -40,7 +40,6 @@ router.post("/", async (c) => {
           },
         });
       }
-
       logger.info(`Received command ${command.name}. Executing`);
       const response = await command.execute(interaction);
       logger.info(`Command ${command.name} executed`);
@@ -51,13 +50,18 @@ router.post("/", async (c) => {
         data: { content: "This command is not supported." },
       });
     }
-  } else if (interaction.type === InteractionType.MessageComponent || interaction.type === InteractionType.ModalSubmit) {
+  } else if (
+    interaction.type === InteractionType.MessageComponent ||
+    interaction.type === InteractionType.ModalSubmit
+  ) {
     logger.info(`Received message component`);
     const customId = interaction.data.custom_id;
     logger.info(customId);
-    let action =
-      actions.get(customId);
-    action ??= actions.filter((a) => customId.startsWith(a.name)).sort((a, b) => b.name.length - a.name.length).first();
+    let action = actions.get(customId);
+    action ??= actions
+      .filter((a) => customId.startsWith(a.name))
+      .sort((a, b) => b.name.length - a.name.length)
+      .first();
     if (!action) {
       return c.json({
         type: InteractionResponseType.ChannelMessageWithSource,
@@ -66,9 +70,18 @@ router.post("/", async (c) => {
     }
 
     logger.info(`Received action ${action.name}. Executing`);
-    const response = await action.execute(interaction);
-    logger.info(`Action ${action.name} executed`);
-    return c.json(response);
+    try {
+      const response = await action.execute(interaction, c.env);
+      logger.info(`Action ${action.name} executed`);
+      return c.json(response);
+    } catch (e) {
+      logger.error(`Action ${action.name} errored`);
+      logger.error(e);
+      return c.json({
+        type: InteractionResponseType.ChannelMessageWithSource,
+        data: { content: "An error occurred.", flags: MessageFlags.Ephemeral },
+      });
+    }
   }
 });
 

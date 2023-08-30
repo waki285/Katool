@@ -2,3 +2,5 @@ name = "katool"
 
 main = "dist/server.js"
 compatibility_date = "2023-08-14"
+
+node_compat = true
